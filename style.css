@@ -1,5 +1,6 @@
 body {
   background-color: aliceblue;
+  text-align: center; 
 }
 
 h1 {
@@ -7,26 +8,8 @@ h1 {
   text-align: center;
 }
 
-.container {
-  text-align: center;
-}
-
-button {
-  width: 50%;
-}
-#correctNotif {
-  text-align: center;
-  color: green;
-  font-size: 24px;
-}
-
-#description {
-  text-align: center;
-}
-
-#luck {
-  font-weight: bold;
-  text-align: center;
+.btn {
+  width: 25%;
 }
 
 .col-md-12 {
@@ -35,10 +18,51 @@ button {
   padding-bottom: 1%;
 }
 
-.Btn {
-  margin: 0 auto;
+.correctNotif {
+  text-align: center;
+  color: green;
+  font-size: 24px;
 }
 
-a {
-  width: 50%;
+.incorrectNotif {
+  text-align: center;
+  color: red;
+  font-size: 24px;
 }
+
+#cont1{
+  display: none;
+}
+
+#cont2, #cont3, #cont4, #cont5{
+display: none;
+}
+
+
+
+#description {
+  text-align: center;
+}
+
+a#highscores {
+  float: left;
+  padding-left: 1%;
+  padding-top: 1%;
+}
+
+#intro {
+  display: blovk;
+}
+
+#luck {
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
