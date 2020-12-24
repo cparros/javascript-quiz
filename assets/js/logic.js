@@ -105,7 +105,8 @@ function getQuestion() {
 
 function quizEnd() {
   // stop timer
-  target.innerText
+  clearInterval(time)
+ 
   // show end screen
   endScreen.style.display = 'block'
   questionsEl.style.display = 'none'
@@ -142,7 +143,7 @@ function saveHighscore() {
     };
 
     // save to localstorage
-
+    localStorage.setItem(JSON.stringify(newScore), "highscores")
     // redirect to next page
     window.location.href = "highscores.html";
   }
