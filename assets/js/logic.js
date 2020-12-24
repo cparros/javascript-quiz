@@ -50,10 +50,15 @@ function getQuestion() {
   // loop over choices
   currentQuestion.choices.forEach(function(choice, i) {
     // create new button for each choice
-    
+    var btn = document.createElement('button');
+    var qText = document.createTextNode(choice)
+    btn.appendChild(qText)
     // attach click event listener to each choice
-
+    btn.addEventListener('click', function() {
+      console.log('clicked'[i])
+    }) 
     // display on the page
+    choicesEl.appendChild(btn)
   });
 }
 
