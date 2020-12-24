@@ -11,6 +11,9 @@ var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
+var startScreen = document.getElementById("start-screen");
+var questionTitle = document.getElementById("question-title");
+var questionChoices = document.getElementById("choices");
 
 // sound effects
 var sfxRight = new Audio("assets/sfx/correct.wav");
@@ -18,11 +21,13 @@ var sfxWrong = new Audio("assets/sfx/incorrect.wav");
 
 function startQuiz() {
   // hide start screen
-
+  startScreen.style.display = 'none'
   // un-hide questions section
-
+  questionsEl.style.display = 'block'
   // start timer
-
+  var timer = setInterval(function() {
+    time--
+  }, 1000);
   // show starting time
   timerEl.innerText = time
 
@@ -32,15 +37,20 @@ function startQuiz() {
 function getQuestion() {
   // get current question object from array
   var currentQuestion = questions[currentQuestionIndex];
+  
 
-  // update title with current question
-
+  questionChoices.textContent = questions[0].choices
+ 
+  // update title with current question 
+  questionTitle.textContent = questions[currentQuestionIndex].title
   // clear out any old question choices
-
+  if(questionChoices !== '') {
+    questionChoices.textContent = ''
+  }
   // loop over choices
   currentQuestion.choices.forEach(function(choice, i) {
     // create new button for each choice
-
+    
     // attach click event listener to each choice
 
     // display on the page
