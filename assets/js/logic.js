@@ -108,6 +108,7 @@ function quizEnd() {
   target.innerText
   // show end screen
   endScreen.style.display = 'block'
+  questionsEl.style.display = 'none'
   // show final score
 
   // hide questions section
