@@ -105,7 +105,7 @@ function getQuestion() {
 
 function quizEnd() {
   // stop timer
-  clearInterval(time)
+  target.innerText
   // show end screen
   endScreen.style.display = 'block'
   questionsEl.style.display = 'none'
