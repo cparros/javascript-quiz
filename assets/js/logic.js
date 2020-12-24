@@ -2,7 +2,7 @@
 var currentQuestionIndex = 0;
 var time = questions.length * 15;
 var timerId;
-console.log(questions)
+
 // variables to reference DOM elements
 var questionsEl = document.getElementById("questions");
 var timerEl = document.getElementById("time");
@@ -14,6 +14,7 @@ var feedbackEl = document.getElementById("feedback");
 var startScreen = document.getElementById("start-screen");
 var questionTitle = document.getElementById("question-title");
 var questionChoices = document.getElementById("choices");
+var endScreen = document.getElementById("end-screen")
 
 // sound effects
 var sfxRight = new Audio("assets/sfx/correct.wav");
@@ -25,7 +26,7 @@ function startQuiz() {
   // un-hide questions section
   questionsEl.style.display = 'block'
   // start timer
-  var timer = setInterval(function() {
+  setInterval(function() {
     time--
   }, 1000);
   // show starting time
@@ -55,17 +56,17 @@ function getQuestion() {
     btn.appendChild(qText)
     // attach click event listener to each choice
     btn.addEventListener('click', function() {
-      console.log('clicked'[i])
+      questionClick(btn)
     }) 
     // display on the page
     choicesEl.appendChild(btn)
   });
 }
 
-function questionClick() {
+ function questionClick(target) {
   // check if user guessed wrong
-  if (this.value !== questions[currentQuestionIndex].answer) {
-    // penalize time
+  if (target.innerText !== questions[currentQuestionIndex].answer) {
+    console.log(target.innerText)
     time -= 15;
 
     if (time < 0) {
@@ -73,12 +74,15 @@ function questionClick() {
     }
 
     // display new time on page
-
+    timerEl.innerText = time
     // play "wrong" sound effect
 
     feedbackEl.textContent = "Wrong!";
-  } else {
+  } else if (target.innerText === questions[currentQuestionIndex].answer) {
     // play "right" sound effect
+    console.log(target.innerText)
+
+    // timerEl.innerText = time
 
     feedbackEl.textContent = "Correct!";
   }
@@ -90,7 +94,7 @@ function questionClick() {
   }, 1000);
 
   // move to next question
-
+    currentQuestionIndex++
   // check if we've run out of questions
   if (currentQuestionIndex === questions.length) {
     quizEnd();
@@ -101,9 +105,10 @@ function questionClick() {
 
 function quizEnd() {
   // stop timer
-
+  clearInterval(time)
   // show end screen
-
+  endScreen.style.display = 'block'
+  questionsEl.style.display = 'none'
   // show final score
 
   // hide questions section
@@ -122,8 +127,10 @@ function clockTick() {
 }
 
 function saveHighscore() {
+  
   // get value of input box
-
+  var initials = initialsEl.value
+  console.log(initials)
   // make sure value wasn't empty
   if (initials !== "") {
     // get saved scores from localstorage, or if not any, set to empty array
