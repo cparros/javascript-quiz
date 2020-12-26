@@ -14,7 +14,9 @@ var feedbackEl = document.getElementById("feedback");
 var startScreen = document.getElementById("start-screen");
 var questionTitle = document.getElementById("question-title");
 var questionChoices = document.getElementById("choices");
-var endScreen = document.getElementById("end-screen")
+var endScreen = document.getElementById("end-screen");
+var finalScore = document.getElementById("final-score");
+
 
 // sound effects
 var sfxRight = new Audio("assets/sfx/correct.wav");
@@ -111,7 +113,7 @@ function quizEnd() {
   endScreen.style.display = 'block'
   questionsEl.style.display = 'none'
   // show final score
-
+ 
   // hide questions section
   questionsEl.setAttribute("class", "hide");
 }
@@ -128,7 +130,6 @@ function clockTick() {
 }
 
 function saveHighscore() {
-  
   // get value of input box
   var initials = initialsEl.value
   console.log(initials)
@@ -143,7 +144,10 @@ function saveHighscore() {
     };
 
     // save to localstorage
-    localStorage.setItem(JSON.stringify(newScore), "highscores")
+
+    localStorage.setItem("highscores", JSON.stringify(newScore))
+    console.log(localStorage.getItem("highscores"))
+
     // redirect to next page
     window.location.href = "highscores.html";
   }
@@ -151,6 +155,7 @@ function saveHighscore() {
 
 function checkForEnter(event) {
   // "13" represents the enter key
+  event.preventDefault()
   if (event.key === "Enter") {
     saveHighscore();
   }
@@ -163,3 +168,4 @@ submitBtn.addEventListener("click", saveHighscore);
 startBtn.addEventListener("click", startQuiz);
 
 initialsEl.addEventListener("onkeyup", checkForEnter);
+
