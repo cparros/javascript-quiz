@@ -5,6 +5,7 @@ I had a great time with this assignment however the one thing that has given me 
 
 I will continue to work on the Highscore List in hopes I can fix this issue!
 
+Link to live application : https://cparros.github.io/javascript-quiz/
 
 
 ![screenshot](jsquiz.png)
