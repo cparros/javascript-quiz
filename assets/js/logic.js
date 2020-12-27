@@ -131,12 +131,15 @@ function clockTick() {
 function saveHighscore() {
   // get value of input box
   var initials = initialsEl.value
+  console.log(initials.length)
+  if(initials.length > 3) {
+    return
+  }
   
       var newScore = {
         score: time,
         initials: initials
       };
-
       // save to localstorage
 
      localStorage.setItem("newscores", JSON.stringify(newScore))
