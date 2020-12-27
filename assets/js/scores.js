@@ -1,29 +1,41 @@
 // either get scores from localstorage or set to empty array
 var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+// if(highscores == null) {
+//   highscores = []
+// }
 console.log(highscores)
+
+var newNew = JSON.parse(window.localStorage.getItem("newscores"));
+
+  highscores.push(newNew)
+
+
 // sort highscores by score property in descending order
-let scoreArray = [] 
+// var scoreArray = [] 
 
-scoreArray.push(highscores)
+// scoreArray.push(highscores)
+// scoreArray.sort(function(a, b) {
+//   return b.score - a.score;
+// });
 
-scoreArray.sort(function(a, b) {
-
+highscores.sort(function(a, b) {
   return b.score - a.score;
 });
 
-scoreArray.forEach(function(score) {
+highscores.forEach(function(score) {
   // create li tag for each high score
   var liTag = document.createElement("li");
   liTag.textContent = score.initials + " - " + score.score;
 
+
+  
   // display on page
   var olEl = document.getElementById("highscores");
   olEl.appendChild(liTag);
+
 });
 
-document.getElementById("clear").addEventListener("click", function() {
+document.getElementById("clear").addEventListener("click",function() {
   window.localStorage.removeItem("highscores");
-  // if undefined hide
-  scoreArray = []
   window.location.reload();
 });

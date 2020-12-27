@@ -132,33 +132,33 @@ function clockTick() {
 function saveHighscore() {
   // get value of input box
   var initials = initialsEl.value
-  console.log(initials)
-  // make sure value wasn't empty
-  if (initials !== "") {
-    // get saved scores from localstorage, or if not any, set to empty array
+  // if(typeof(Storage) !== "undefined") {
+  //   if (initials !== "") {
+      // format new score object for current user
+      var newScore = {
+        score: time,
+        initials: initials
+      };
 
-    // format new score object for current user
-    var newScore = {
-      score: time,
-      initials: initials
-    };
+      // save to localstorage
 
-    // save to localstorage
-
-    localStorage.setItem("highscores", JSON.stringify(newScore))
-    console.log(localStorage.getItem("highscores"))
-
-    // redirect to next page
-    window.location.href = "highscores.html";
-  }
+     localStorage.setItem("newscores", JSON.stringify(newScore))
+      //append to local storage
+     
+      // var oldScores = localStorage.getItem("highscores")
+      // localStorage.setItem("highscores", oldScores + JSON.stringify(newScore))
+      
+      // redirect to next page
+      window.location.href = "highscores.html";
+    // }
+  // }
 }
 
-function checkForEnter(event) {
+function checkForEnter() {
   // "13" represents the enter key
-  event.preventDefault()
-  if (event.key === "Enter") {
-    saveHighscore();
-  }
+    if(e.key === '13') {
+    console.log('pressed')
+    }
 }
 
 // user clicks button to submit initials
@@ -167,5 +167,19 @@ submitBtn.addEventListener("click", saveHighscore);
 // user clicks button to start quiz
 startBtn.addEventListener("click", startQuiz);
 
-initialsEl.addEventListener("onkeyup", checkForEnter);
+// initialsEl.addEventListener("keyup", function(e) { 
+//   if(e.key === 13) {
+//   e.preventDefault()
+//   submitBtn.click()
+//   console.log('pressed')
+//   }}
+// )
+
+
+initials.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   submitBtn.click();
+  }
+});
 
