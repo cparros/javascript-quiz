@@ -132,9 +132,7 @@ function clockTick() {
 function saveHighscore() {
   // get value of input box
   var initials = initialsEl.value
-  // if(typeof(Storage) !== "undefined") {
-  //   if (initials !== "") {
-      // format new score object for current user
+  
       var newScore = {
         score: time,
         initials: initials
@@ -143,15 +141,10 @@ function saveHighscore() {
       // save to localstorage
 
      localStorage.setItem("newscores", JSON.stringify(newScore))
-      //append to local storage
-     
-      // var oldScores = localStorage.getItem("highscores")
-      // localStorage.setItem("highscores", oldScores + JSON.stringify(newScore))
       
       // redirect to next page
       window.location.href = "highscores.html";
-    // }
-  // }
+    
 }
 
 function checkForEnter() {
@@ -166,15 +159,6 @@ submitBtn.addEventListener("click", saveHighscore);
 
 // user clicks button to start quiz
 startBtn.addEventListener("click", startQuiz);
-
-// initialsEl.addEventListener("keyup", function(e) { 
-//   if(e.key === 13) {
-//   e.preventDefault()
-//   submitBtn.click()
-//   console.log('pressed')
-//   }}
-// )
-
 
 initials.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {

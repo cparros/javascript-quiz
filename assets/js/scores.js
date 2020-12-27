@@ -1,22 +1,12 @@
 // either get scores from localstorage or set to empty array
 var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
-// if(highscores == null) {
-//   highscores = []
-// }
+
 console.log(highscores)
 
 var newNew = JSON.parse(window.localStorage.getItem("newscores"));
 
   highscores.push(newNew)
 
-
-// sort highscores by score property in descending order
-// var scoreArray = [] 
-
-// scoreArray.push(highscores)
-// scoreArray.sort(function(a, b) {
-//   return b.score - a.score;
-// });
 
 highscores.sort(function(a, b) {
   return b.score - a.score;
