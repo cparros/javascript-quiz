@@ -1,2 +1,4 @@
 # javascript-quiz
-This assinment is one in which we are supposed to create a javascript quiz that covers some basic knowledge. I am going to attempt to bootstrap some of my design and add via Javascript some of the functionality for CORRECT and INCORRECT answers! 
+This assinment is one in which we are supposed to create a javascript quiz that covers some basic knowledge as wel as Local Storage. I had a great time with this assignment the one thing that has given me some trouble is appending to local storage. 
+
+![screenshot](jsquiz.png)
