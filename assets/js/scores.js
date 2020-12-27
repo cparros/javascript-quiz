@@ -27,5 +27,9 @@ highscores.forEach(function(score) {
 
 document.getElementById("clear").addEventListener("click",function() {
   window.localStorage.removeItem("highscores");
-  window.location.reload();
+  var list = document.getElementById('highscores')
+  list.remove()
+  // window.location.reload();
+  
+  
 });

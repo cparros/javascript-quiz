@@ -41,7 +41,6 @@ function getQuestion() {
   // get current question object from array
   var currentQuestion = questions[currentQuestionIndex];
   
-
   questionChoices.textContent = questions[0].choices
  
   // update title with current question 
@@ -86,7 +85,6 @@ function getQuestion() {
     console.log(target.innerText)
     sfxRight.play()
     // timerEl.innerText = time
-
     feedbackEl.textContent = "Correct!";
   }
 
