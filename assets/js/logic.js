@@ -78,12 +78,13 @@ function getQuestion() {
     // display new time on page
     timerEl.innerText = time
     // play "wrong" sound effect
-
+    sfxWrong.play()
+    
     feedbackEl.textContent = "Wrong!";
   } else if (target.innerText === questions[currentQuestionIndex].answer) {
     // play "right" sound effect
     console.log(target.innerText)
-
+    sfxRight.play()
     // timerEl.innerText = time
 
     feedbackEl.textContent = "Correct!";
