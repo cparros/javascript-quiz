@@ -136,13 +136,19 @@ function saveHighscore() {
     return
   }
   
+      var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+
       var newScore = {
         score: time,
         initials: initials
       };
+
+      highscores.push(newScore)
+
       // save to localstorage
 
-     localStorage.setItem("newscores", JSON.stringify(newScore))
+      
+     localStorage.setItem("highscores", JSON.stringify(highscores))
       
       // redirect to next page
       window.location.href = "highscores.html";
